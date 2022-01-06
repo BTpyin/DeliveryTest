@@ -14,6 +14,10 @@
 		0EFC74182785ABC20040679D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EFC74172785ABC20040679D /* Assets.xcassets */; };
 		0EFC741B2785ABC20040679D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EFC74192785ABC20040679D /* LaunchScreen.storyboard */; };
 		0EFC74232785AC340040679D /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC74222785AC340040679D /* RootNavigationController.swift */; };
+		0EFC742527869F1A0040679D /* DeliveryMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC742427869F1A0040679D /* DeliveryMainViewController.swift */; };
+		0EFC74272786A7AB0040679D /* DeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC74262786A7AB0040679D /* DeliveryDetailViewController.swift */; };
+		0EFC74292786EA7B0040679D /* DeliveryMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC74282786EA7B0040679D /* DeliveryMainTableViewCell.swift */; };
+		0EFC742B2786F38A0040679D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC742A2786F38A0040679D /* UIViewExtension.swift */; };
 		661E23C5DADFBBCDE1AA9AD8 /* Pods_DeliveryTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536F250D894DBF29732D5EB3 /* Pods_DeliveryTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		0EFC741A2785ABC20040679D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EFC741C2785ABC20040679D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EFC74222785AC340040679D /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		0EFC742427869F1A0040679D /* DeliveryMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMainViewController.swift; sourceTree = "<group>"; };
+		0EFC74262786A7AB0040679D /* DeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewController.swift; sourceTree = "<group>"; };
+		0EFC74282786EA7B0040679D /* DeliveryMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMainTableViewCell.swift; sourceTree = "<group>"; };
+		0EFC742A2786F38A0040679D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		44A76F2B68E1EB27F963AC94 /* Pods-DeliveryTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTest.release.xcconfig"; path = "Target Support Files/Pods-DeliveryTest/Pods-DeliveryTest.release.xcconfig"; sourceTree = "<group>"; };
 		536F250D894DBF29732D5EB3 /* Pods_DeliveryTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7496CFC02EA3557C796A551C /* Pods-DeliveryTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTest.debug.xcconfig"; path = "Target Support Files/Pods-DeliveryTest/Pods-DeliveryTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,14 +73,18 @@
 		0EFC740D2785ABC10040679D /* DeliveryTest */ = {
 			isa = PBXGroup;
 			children = (
-				0EFC740E2785ABC10040679D /* AppDelegate.swift */,
 				0EFC74102785ABC10040679D /* SceneDelegate.swift */,
-				0EFC74122785ABC10040679D /* BaseViewController.swift */,
 				0EFC74142785ABC10040679D /* Main.storyboard */,
 				0EFC74172785ABC20040679D /* Assets.xcassets */,
 				0EFC74192785ABC20040679D /* LaunchScreen.storyboard */,
 				0EFC741C2785ABC20040679D /* Info.plist */,
+				0EFC740E2785ABC10040679D /* AppDelegate.swift */,
+				0EFC74122785ABC10040679D /* BaseViewController.swift */,
 				0EFC74222785AC340040679D /* RootNavigationController.swift */,
+				0EFC742427869F1A0040679D /* DeliveryMainViewController.swift */,
+				0EFC74262786A7AB0040679D /* DeliveryDetailViewController.swift */,
+				0EFC74282786EA7B0040679D /* DeliveryMainTableViewCell.swift */,
+				0EFC742A2786F38A0040679D /* UIViewExtension.swift */,
 			);
 			path = DeliveryTest;
 			sourceTree = "<group>";
@@ -91,7 +103,6 @@
 				7496CFC02EA3557C796A551C /* Pods-DeliveryTest.debug.xcconfig */,
 				44A76F2B68E1EB27F963AC94 /* Pods-DeliveryTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -211,8 +222,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EFC74132785ABC10040679D /* BaseViewController.swift in Sources */,
+				0EFC74292786EA7B0040679D /* DeliveryMainTableViewCell.swift in Sources */,
+				0EFC74272786A7AB0040679D /* DeliveryDetailViewController.swift in Sources */,
 				0EFC74232785AC340040679D /* RootNavigationController.swift in Sources */,
 				0EFC740F2785ABC10040679D /* AppDelegate.swift in Sources */,
+				0EFC742527869F1A0040679D /* DeliveryMainViewController.swift in Sources */,
+				0EFC742B2786F38A0040679D /* UIViewExtension.swift in Sources */,
 				0EFC74112785ABC10040679D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -345,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -371,6 +386,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,6 +416,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
