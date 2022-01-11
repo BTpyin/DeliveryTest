@@ -21,6 +21,15 @@ class DeliveryMainViewController: BaseViewController, UITableViewDelegate, UITab
         tv.backgroundColor = .white
         return tv
     }()
+    lazy var refreshBtn : UIButton = {
+        
+        let btn = UIButton()
+        btn.setTitle("Refresh", for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .normal)
+        btn.addTarget(self, action: #selector(refreshBtnClicked(_:)), for: .touchUpInside)
+        return btn
+        
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +44,7 @@ class DeliveryMainViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func initUI(){
-        self.view.addSubview(tvMenu)
+        self.view.addSubviews(refreshBtn, tvMenu)
         self.view.backgroundColor = .white
     }
     
@@ -46,10 +55,19 @@ class DeliveryMainViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func initConstraints() {
-        tvMenu.snp.makeConstraints{(maker) in
+        
+        refreshBtn.snp.makeConstraints{(maker) in
             maker.top.leading.equalToSuperview().offset(10)
+            maker.trailing.equalToSuperview().inset(10)
+        }
+        
+        tvMenu.snp.makeConstraints{(maker) in
+            maker.top.equalTo(refreshBtn.snp.bottom).offset(10)
+            maker.leading.equalToSuperview().offset(10)
             maker.trailing.bottom.equalToSuperview().inset(10)
         }
+        
+        
     }
     
     func setupNavBar(){
@@ -58,6 +76,10 @@ class DeliveryMainViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     @objc func refreshClicked(){
+
+    }
+    
+    @IBAction func refreshBtnClicked(_ sender: UIButton) {
         viewModel?.syncDelivery(start: 0, limit: 10, completed: { [weak self]_ in
             self?.viewModel?.fetchDeliveryFromRealm()
         })

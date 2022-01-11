@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        setUpNavigationBarStyle()
+        
         return true
     }
 
@@ -33,6 +36,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    fileprivate func setUpNavigationBarStyle() {
+        UINavigationBar.appearance().barTintColor = UIColor.blue
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = .white
+        
+        if #available(iOS 13.0, *) {
+            let navbarAppearance = UINavigationBarAppearance()
+            navbarAppearance.configureWithTransparentBackground()
+            navbarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navbarAppearance.backgroundColor =  UIColor.blue
+            UINavigationBar.appearance().standardAppearance = navbarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navbarAppearance
+            UINavigationBar.appearance().compactAppearance = navbarAppearance
+        }
 
+        
+//        let backImage = UIImage(named: "back()?.withRenderingMode(.alwaysOriginal)
+//        UINavigationBar.appearance().backIndicatorImage = backImage
+//        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
+    
+    }
+    
 }
 

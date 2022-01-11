@@ -49,10 +49,14 @@ class DeliveriesObject : Object, Mappable{
         
         let numFormatter = NumberFormatter()
         numFormatter.numberStyle = .currency
-        let delivery = numFormatter.number(from: deliveryFee ?? "")?.doubleValue
+
+//        numFormatter.number(from: deliveryFee ?? "")
+        surcharge?.removeFirst()
+        deliveryFee?.removeFirst()
+        let delivery = numFormatter.number(from: deliveryFee ?? "") ?? 0
         let survice = numFormatter.number(from: surcharge ?? "")?.doubleValue
         
-        totalCharge = (delivery ?? 0 ) + (survice ?? 0)
+        totalCharge = (Double(deliveryFee ?? "") ?? 0) + (Double(surcharge ?? "") ?? 0)
 
  
         route <- map["route"]

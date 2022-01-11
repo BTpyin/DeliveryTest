@@ -143,7 +143,7 @@ class DeliveryMainTableViewCell: UITableViewCell {
         }
         
         fromText.snp.makeConstraints{(maker) in
-//            maker.size.equalTo(CGSize(width: 50, height: 20))
+            maker.size.equalTo(CGSize(width: 40, height: 15))
             maker.leading.equalTo(cellImage.snp.trailing).offset(15)
             maker.top.equalToSuperview().offset(10)
         }
@@ -171,7 +171,7 @@ class DeliveryMainTableViewCell: UITableViewCell {
         
         deliveryPrice.snp.makeConstraints{(maker) in
             maker.top.greaterThanOrEqualTo(bookmarkIcon.snp.bottom).offset(20)
-            maker.size.equalTo(CGSize(width: 80, height: 20))
+//            maker.size.equalTo(CGSize(width: 80, height: 20))
             maker.trailing.equalToSuperview().inset(15)
             maker.bottom.equalToSuperview().inset(10)
         }
@@ -186,10 +186,16 @@ class DeliveryMainTableViewCell: UITableViewCell {
     
     func uiBind(delivery : DeliveriesObject){
 //        bookmarkIcon.isHidden = !
-        deliveryPrice.text = "$\(delivery.totalCharge)"
+//        deliveryPrice.text = "$\(delivery.totalCharge)"
         deliveryDestination.text = delivery.route?.end
         deliveryStartFrom.text = delivery.route?.start
         cellImage.kf.setImage(with: URL(string: delivery.goodsPickupPic ?? ""))
+        
+        let numFormatter = NumberFormatter()
+        numFormatter.numberStyle = .currency
+        numFormatter.string(for: delivery.totalCharge)
+        deliveryPrice.text = numFormatter.string(for: delivery.totalCharge)
+
         
     }
     
