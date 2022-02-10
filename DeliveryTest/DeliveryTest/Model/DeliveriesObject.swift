@@ -9,18 +9,14 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class DeliveriesObject : Object, Mappable{
-    
+class DeliveriesObject: Object, Codable{
     @objc dynamic var id : String?
     @objc dynamic var remarks : String?
-    @objc dynamic var pickupTime = Date()
-    @objc dynamic var goodsPickupPic : String?
+    @objc dynamic var pickupTime : String?
+    @objc dynamic var goodsPicture : String?
     @objc dynamic var deliveryFee : String?
     @objc dynamic var surcharge : String?
-    
-    @objc dynamic var totalCharge : Double = 0
-    @objc dynamic var bookmarked : Bool = false
-    
+    let  bookmarked : Bool?
     @objc dynamic var route : Route?
     @objc dynamic var sender : Sender?
     
@@ -28,73 +24,82 @@ class DeliveriesObject : Object, Mappable{
       return "id"
     }
     
-    required convenience init?(map: Map) {
-        self.init()
+    func getTotalcharge() -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.usesSignificantDigits = true
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.usesGroupingSeparator = true
+        numberFormatter.locale = Locale(identifier: "es_US")
+        let deFee = numberFormatter.number(from: deliveryFee ?? "$0")
+        let surFee = numberFormatter.number(from: surcharge ?? "$0")
+        let totalCharge = (deFee?.doubleValue ?? 0) + (surFee?.doubleValue ?? 0)
+        return numberFormatter.string(from: NSNumber(value: totalCharge)) ?? "$0"
     }
-
-    func mapping(map: Map) {
-        
-        id <- map["id"]
-        remarks <- map["remarks"]
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        var tmpDate = ""
-        tmpDate <- map["pickupTime"]
-        pickupTime = dateFormatter.date(from: tmpDate) ?? Date()
-        
-        goodsPickupPic <- map["goodsPicture"]
-        deliveryFee <- map["deliveryFee"]
-        surcharge <- map["surcharge"]
-        
-        let numFormatter = NumberFormatter()
-        numFormatter.numberStyle = .currency
-
-//        numFormatter.number(from: deliveryFee ?? "")
-        surcharge?.removeFirst()
-        deliveryFee?.removeFirst()
-        let delivery = numFormatter.number(from: deliveryFee ?? "") ?? 0
-        let survice = numFormatter.number(from: surcharge ?? "")?.doubleValue
-        
-        totalCharge = (Double(deliveryFee ?? "") ?? 0) + (Double(surcharge ?? "") ?? 0)
-
- 
-        route <- map["route"]
-        sender <- map["sender"]
-        
+    
+    
+//    func getRoute() -> TestRoute{
+//        return route ?? TestRoute(from: <#Decoder#>)
+//    }
+    
+    func getStart() -> String{
+        return route?.getStart() ?? ""
+    }
+    
+    func getEnd() -> String{
+        return route?.getEnd() ?? ""
+    }
+    
+//    func getSender() -> TestSender{
+//        return sender ?? TestSender()
+//    }
+    
+    func getGoodPics() -> String{
+        return goodsPicture ?? ""
+    }
+    
+    func getPhone() -> String{
+        return sender?.getPhone() ?? ""
+    }
+    
+    func getName() -> String{
+        return sender?.getName() ?? ""
+    }
+    
+    func getEmail() -> String{
+        return sender?.getEmail() ?? ""
     }
 }
-
-class Route : Object, Mappable{
+class Route :  Object, Codable{
     
     @objc dynamic var start : String?
     @objc dynamic var end : String?
     
-    
-    required convenience init?(map: Map) {
-        self.init()
+    func getStart() -> String{
+        return start ?? ""
     }
-
-    func mapping(map: Map) {
-        start <- map["start"]
-        end <- map["end"]
+    
+    func getEnd() -> String{
+        return end ?? ""
     }
 }
 
-class Sender : Object, Mappable{
+class Sender :  Object, Codable{
     
     @objc dynamic var phone : String?
     @objc dynamic var name : String?
     @objc dynamic var email : String?
     
-    
-    required convenience init?(map: Map) {
-        self.init()
+    func getPhone() -> String{
+        return phone ?? ""
     }
-
-    func mapping(map: Map) {
-        phone <- map["phone"]
-        name <- map["name"]
-        email <- map["email"]
+    
+    func getName() -> String{
+        return name ?? ""
+    }
+    
+    func getEmail() -> String{
+        return email ?? ""
     }
 }

@@ -63,30 +63,45 @@ class SyncData {
             "offset" : startFrom,
             "limit": limit
         ]
-        Alamofire.request(urlString,
+        Api.manager.request(urlString,
                           method: .get,
                           parameters: param,
                           encoding: URLEncoding.default,
-                          headers: nil).responseArray{(response: DataResponse<[DeliveriesObject]>) in
-            if let status = response.response?.statusCode {
+                          headers: nil).response(completionHandler: {dataResponse in
+            if let status = dataResponse.response?.statusCode {
+                let jsonDecoder = JSONDecoder()
                     switch(status) {
                        case 200:
-                           guard let lookUpResponse = response.result.value else{
-                               completed?(.network)
-                               return
-                           }
-                        SyncData.writeRealmAsync({(realm) in
-                            realm.add(lookUpResponse, update: .all)
+                        var data: [DeliveriesObject]?
+                        do {
+                            data = try jsonDecoder.decode([DeliveriesObject].self, from: dataResponse.data ?? Data())
                             
-                        }, completed: {
-                            completed?(.realmWrite)
-                        })
+                            if let apidata = data {
+                                SyncData.writeRealmAsync({(realm) in
+                                    realm.add(apidata, update: .all)
+                                    
+                                }, completed: {
+                                    completed?(.realmWrite)
+                                })
+                            } else {
+//                                if let rootViewController = keyWindow?.rootViewController as? BaseViewController{
+//                                    rootViewController.stopLoading()
+//                                    rootViewController.showAlert("Null Data", okClicked: {_ in
+//                                        return
+//                                    })
+//                                }
+                            }
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+
+
 
                        default:
-                        print(response.error?.localizedDescription)
+                        print(dataResponse.error?.localizedDescription)
                         completed?(.network)
                      }
             }
-        }
+        })
     }
 }

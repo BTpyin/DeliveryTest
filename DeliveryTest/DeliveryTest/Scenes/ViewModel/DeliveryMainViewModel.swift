@@ -33,13 +33,14 @@ class DeliveryMainViewModel : ViewModelType{
     let inOut = InOut()
     
     init() {
-        syncDelivery(start: 0,limit: 10,completed: nil)
-        fetchDeliveryFromRealm()
+        syncDelivery(start: 0,limit: 10,completed: {_ in
+            self.fetchDeliveryFromRealm()
+        })
+        
     }
     
     func syncDelivery(start: Int, limit:Int ,completed: ((SyncDataFailReason?) -> Void)?){
         SyncData().getDeliveries(startFrom: start, limit: limit, completed: completed)
-        fetchDeliveryFromRealm()
     }
     
     func fetchDeliveryFromRealm(){

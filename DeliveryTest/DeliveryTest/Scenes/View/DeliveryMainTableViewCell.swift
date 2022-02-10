@@ -135,8 +135,8 @@ class DeliveryMainTableViewCell: UITableViewCell {
         }
         
         cellImage.snp.makeConstraints{(maker) in
-            maker.size.equalTo(CGSize(width: 80, height: 80))
-            maker.leading.equalToSuperview().inset(15)
+            maker.size.equalTo(CGSize(width: 90, height: 90))
+            maker.leading.equalToSuperview().inset(10)
             maker.centerY.equalToSuperview()
 //            maker.top.equalToSuperview().offset(10)
 //            maker.bottom.equalToSuperview().inset(10)
@@ -145,7 +145,7 @@ class DeliveryMainTableViewCell: UITableViewCell {
         fromText.snp.makeConstraints{(maker) in
             maker.size.equalTo(CGSize(width: 40, height: 15))
             maker.leading.equalTo(cellImage.snp.trailing).offset(15)
-            maker.top.equalToSuperview().offset(10)
+            maker.top.equalTo(bookmarkIcon.snp.bottom).offset(0)
         }
         
         toText.snp.makeConstraints{(maker) in
@@ -170,7 +170,7 @@ class DeliveryMainTableViewCell: UITableViewCell {
         }
         
         deliveryPrice.snp.makeConstraints{(maker) in
-            maker.top.greaterThanOrEqualTo(bookmarkIcon.snp.bottom).offset(20)
+            maker.top.equalTo(deliveryDestination.snp.bottom).offset(10)
 //            maker.size.equalTo(CGSize(width: 80, height: 20))
             maker.trailing.equalToSuperview().inset(15)
             maker.bottom.equalToSuperview().inset(10)
@@ -178,8 +178,8 @@ class DeliveryMainTableViewCell: UITableViewCell {
         
         bookmarkIcon.snp.makeConstraints{(maker) in
             maker.top.equalToSuperview().offset(7)
-            maker.size.equalTo(CGSize(width: 50, height: 50))
-            maker.trailing.equalToSuperview().inset(15)
+            maker.size.equalTo(CGSize(width: 25, height: 25))
+            maker.trailing.equalToSuperview().inset(10)
         }
     
     }
@@ -187,15 +187,10 @@ class DeliveryMainTableViewCell: UITableViewCell {
     func uiBind(delivery : DeliveriesObject){
 //        bookmarkIcon.isHidden = !
 //        deliveryPrice.text = "$\(delivery.totalCharge)"
-        deliveryDestination.text = delivery.route?.end
-        deliveryStartFrom.text = delivery.route?.start
-        cellImage.kf.setImage(with: URL(string: delivery.goodsPickupPic ?? ""))
-        
-        let numFormatter = NumberFormatter()
-        numFormatter.numberStyle = .currency
-        numFormatter.string(for: delivery.totalCharge)
-        deliveryPrice.text = numFormatter.string(for: delivery.totalCharge)
-
+        deliveryDestination.text = delivery.getEnd()
+        deliveryStartFrom.text = delivery.getStart()
+        cellImage.kf.setImage(with: URL(string: delivery.getGoodPics()))
+        deliveryPrice.text = delivery.getTotalcharge()
         
     }
     

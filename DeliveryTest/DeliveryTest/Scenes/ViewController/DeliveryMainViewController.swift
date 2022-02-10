@@ -34,7 +34,10 @@ class DeliveryMainViewController: BaseViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = DeliveryMainViewModel()
-        viewModel?.syncDelivery(start: 0, limit: 10, completed: nil)
+        viewModel?.syncDelivery(start: 0, limit: 10, completed: {_ in
+            self.viewModel?.fetchDeliveryFromRealm()
+            
+        })
         // Do any additional setup after loading the view.
         initUI()
         setupNavBar()
@@ -85,13 +88,23 @@ class DeliveryMainViewController: BaseViewController, UITableViewDelegate, UITab
         })
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DeliveryDetailViewController()
+        guard let delivery = viewModel?.output.deliveryListRelay.value[indexPath.row] else{return}
+        detailVC.viewModel = DeliveryDetailViewModel(delivery: delivery)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.output.deliveryListRelay.value.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DeliveryMainTableViewCell.cell, for: indexPath) as! DeliveryMainTableViewCell
-        cell.uiBind(delivery: viewModel?.output.deliveryListRelay.value[indexPath.row] ?? DeliveriesObject())
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DeliveryMainTableViewCell.cell, for: indexPath) as? DeliveryMainTableViewCell else {
+            fatalError("The dequeued cell is not an instance of DeliveryMainTableViewCell.")
+          }
+        guard let delivery = viewModel?.output.deliveryListRelay.value[indexPath.row] else {return cell}
+        cell.uiBind(delivery: delivery)
         return cell
     }
 }

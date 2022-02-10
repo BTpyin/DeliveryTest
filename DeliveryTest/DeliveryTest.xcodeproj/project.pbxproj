@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E72C9E027B518510021C2A7 /* DeliveryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E72C9DF27B518500021C2A7 /* DeliveryDetailViewModel.swift */; };
 		0EC9C6B22787DF5300035407 /* FontStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9C6B12787DF5300035407 /* FontStyleExtension.swift */; };
 		0EC9C6BD278800B900035407 /* UIViewShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9C6BC278800B900035407 /* UIViewShadowExtension.swift */; };
 		0EC9C6C027882C0700035407 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9C6BF27882C0700035407 /* ViewModelType.swift */; };
@@ -25,11 +26,11 @@
 		0EFC74272786A7AB0040679D /* DeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC74262786A7AB0040679D /* DeliveryDetailViewController.swift */; };
 		0EFC74292786EA7B0040679D /* DeliveryMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC74282786EA7B0040679D /* DeliveryMainTableViewCell.swift */; };
 		0EFC742B2786F38A0040679D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC742A2786F38A0040679D /* UIViewExtension.swift */; };
-		BBA257A1C9308FD9D630C39C /* Pods_DeliveryTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E60FBEEC50518319F7D79627 /* Pods_DeliveryTest.framework */; };
+		9B24468148414F45944CDEED /* Pods_DeliveryTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655F4D77E7C5A88F650BAB1B /* Pods_DeliveryTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0267078F13A5D6CA41AF6130 /* Pods-DeliveryTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTest.debug.xcconfig"; path = "Target Support Files/Pods-DeliveryTest/Pods-DeliveryTest.debug.xcconfig"; sourceTree = "<group>"; };
+		0E72C9DF27B518500021C2A7 /* DeliveryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewModel.swift; sourceTree = "<group>"; };
 		0EC9C6B12787DF5300035407 /* FontStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleExtension.swift; sourceTree = "<group>"; };
 		0EC9C6BC278800B900035407 /* UIViewShadowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewShadowExtension.swift; sourceTree = "<group>"; };
 		0EC9C6BF27882C0700035407 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -50,8 +51,9 @@
 		0EFC74262786A7AB0040679D /* DeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewController.swift; sourceTree = "<group>"; };
 		0EFC74282786EA7B0040679D /* DeliveryMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMainTableViewCell.swift; sourceTree = "<group>"; };
 		0EFC742A2786F38A0040679D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		5F1F4F903E1A086274E87270 /* Pods-DeliveryTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTest.release.xcconfig"; path = "Target Support Files/Pods-DeliveryTest/Pods-DeliveryTest.release.xcconfig"; sourceTree = "<group>"; };
-		E60FBEEC50518319F7D79627 /* Pods_DeliveryTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		655F4D77E7C5A88F650BAB1B /* Pods_DeliveryTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8099ACECBD76DC989DE0E01 /* Pods-DeliveryTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTest.release.xcconfig"; path = "Target Support Files/Pods-DeliveryTest/Pods-DeliveryTest.release.xcconfig"; sourceTree = "<group>"; };
+		ED014180AC1104296762402B /* Pods-DeliveryTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTest.debug.xcconfig"; path = "Target Support Files/Pods-DeliveryTest/Pods-DeliveryTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA257A1C9308FD9D630C39C /* Pods_DeliveryTest.framework in Frameworks */,
+				9B24468148414F45944CDEED /* Pods_DeliveryTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				0EC9C6C22788310400035407 /* DeliveryMainViewModel.swift */,
+				0E72C9DF27B518500021C2A7 /* DeliveryDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -146,7 +149,7 @@
 				0EFC740D2785ABC10040679D /* DeliveryTest */,
 				0EFC740C2785ABC10040679D /* Products */,
 				666BE54844D69F97F184B06D /* Pods */,
-				12B76A2592775591A5231193 /* Frameworks */,
+				4CC78161F72854FDA256439E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,10 +177,10 @@
 			path = DeliveryTest;
 			sourceTree = "<group>";
 		};
-		12B76A2592775591A5231193 /* Frameworks */ = {
+		4CC78161F72854FDA256439E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E60FBEEC50518319F7D79627 /* Pods_DeliveryTest.framework */,
+				655F4D77E7C5A88F650BAB1B /* Pods_DeliveryTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,8 +188,8 @@
 		666BE54844D69F97F184B06D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0267078F13A5D6CA41AF6130 /* Pods-DeliveryTest.debug.xcconfig */,
-				5F1F4F903E1A086274E87270 /* Pods-DeliveryTest.release.xcconfig */,
+				ED014180AC1104296762402B /* Pods-DeliveryTest.debug.xcconfig */,
+				C8099ACECBD76DC989DE0E01 /* Pods-DeliveryTest.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -198,11 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EFC741F2785ABC20040679D /* Build configuration list for PBXNativeTarget "DeliveryTest" */;
 			buildPhases = (
-				97D2151EE419EC3265A947F9 /* [CP] Check Pods Manifest.lock */,
+				6C890C7D1F5BFC85801320E7 /* [CP] Check Pods Manifest.lock */,
 				0EFC74072785ABC10040679D /* Sources */,
 				0EFC74082785ABC10040679D /* Frameworks */,
 				0EFC74092785ABC10040679D /* Resources */,
-				16C1F0E18AE4BF5F2EE3C1A0 /* [CP] Embed Pods Frameworks */,
+				54AA638EFDFB026C66773D29 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,7 +263,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		16C1F0E18AE4BF5F2EE3C1A0 /* [CP] Embed Pods Frameworks */ = {
+		54AA638EFDFB026C66773D29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,7 +280,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeliveryTest/Pods-DeliveryTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		97D2151EE419EC3265A947F9 /* [CP] Check Pods Manifest.lock */ = {
+		6C890C7D1F5BFC85801320E7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,6 +320,7 @@
 				0EC9C6C62788436200035407 /* Api.swift in Sources */,
 				0EC9C6BD278800B900035407 /* UIViewShadowExtension.swift in Sources */,
 				0EFC742527869F1A0040679D /* DeliveryMainViewController.swift in Sources */,
+				0E72C9E027B518510021C2A7 /* DeliveryDetailViewModel.swift in Sources */,
 				0EFC742B2786F38A0040679D /* UIViewExtension.swift in Sources */,
 				0EC9C6CA2788472900035407 /* DeliveriesObject.swift in Sources */,
 				0EC9C6C8278843FE00035407 /* SyncData.swift in Sources */,
@@ -464,7 +468,7 @@
 		};
 		0EFC74202785ABC20040679D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0267078F13A5D6CA41AF6130 /* Pods-DeliveryTest.debug.xcconfig */;
+			baseConfigurationReference = ED014180AC1104296762402B /* Pods-DeliveryTest.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
@@ -500,7 +504,7 @@
 		};
 		0EFC74212785ABC20040679D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F1F4F903E1A086274E87270 /* Pods-DeliveryTest.release.xcconfig */;
+			baseConfigurationReference = C8099ACECBD76DC989DE0E01 /* Pods-DeliveryTest.release.xcconfig */;
 			buildSettings = {
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
